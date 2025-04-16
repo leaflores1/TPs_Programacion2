@@ -68,5 +68,43 @@ public class Inventario {
         }
 
     }
-
+   public int obtenerTotalStock(){
+        int cantidadAcumulada = 0;
+for (Producto p : productos) {
+    cantidadAcumulada = cantidadAcumulada + p.getCantidad();
 }
+        return cantidadAcumulada;
+    }
+    public Producto obtenerProductoConMayorStock(){
+        Producto productoMax = productos.get(0);
+        for (Producto p : productos) {
+            if(p.getCantidad() > productoMax.getCantidad()){
+                productoMax = p;
+            }
+        }
+        return productoMax;
+    }
+
+    public void filtrarProductosPorPrecio(double min, double max){
+        for (Producto p : productos) {
+            if(p.getPrecio()>=min && p.getPrecio()<=max){
+                System.out.println(p);
+            }
+        }
+    }
+    public void mostrarCategoriasDisponibles(){
+        System.out.println(CategoriaProducto.ROPA.getDescripcion());
+        System.out.println(CategoriaProducto.ALIMENTOS.getDescripcion());
+        System.out.println(CategoriaProducto.ELECTRONICA.getDescripcion());
+        System.out.println(CategoriaProducto.HOGAR.getDescripcion());
+    }
+    /*MEJORA
+    * public void mostrarCategoriasDisponibles(){
+    for (CategoriaProducto cat : CategoriaProducto.values()) {
+        System.out.println(cat.getDescripcion());
+    }
+}
+*/
+}
+
+

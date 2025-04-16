@@ -22,6 +22,14 @@ public class Producto {
         return id;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
     public int setCantidad(int cantidad) {
         this.cantidad = cantidad;
         return cantidad;
